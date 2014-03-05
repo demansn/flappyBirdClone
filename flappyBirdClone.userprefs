@@ -1,8 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerMoveRight.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerMoveRight.cs" Line="22" Column="27" />
+      <File FileName="Assets\Scripts\PlayerMoveRight.cs" Line="23" Column="28" />
+      <File FileName="Assets\Scripts\GameOver\GuI.cs" Line="12" Column="27" />
+      <File FileName="..\..\Tron\Assets\Scripts\GameOver.cs" Line="1" Column="1" />
+      <File FileName="..\..\Tron\Assets\Scripts\ButtonP2L.cs" Line="1" Column="1" />
+      <File FileName="..\..\Tron\Assets\Scripts\PlayerMove2.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
