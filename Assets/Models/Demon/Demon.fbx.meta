@@ -1,0 +1,189 @@
+fileFormatVersion: 2
+guid: db18e0e22685a8b4aa57ee95fea6f0c0
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Body
+    100004: Body_001
+    100006: Body_003
+    100008: Body_005
+    100010: Body_006
+    100012: Body_007
+    100014: Body_008
+    100016: Body_009
+    100018: Body_010
+    100020: Body_011
+    100022: Body_012
+    100024: Body_013
+    100026: Body_014
+    100028: Body_015
+    100030: Body_016
+    100032: Cube
+    100034: //RootNode
+    100036: Foot1
+    100038: Foot2
+    100040: Head
+    100042: Leg1
+    100044: Leg2
+    100046: Wing1
+    100048: Wing2
+    400000: Armature
+    400002: Body
+    400004: Body_001
+    400006: Body_003
+    400008: Body_005
+    400010: Body_006
+    400012: Body_007
+    400014: Body_008
+    400016: Body_009
+    400018: Body_010
+    400020: Body_011
+    400022: Body_012
+    400024: Body_013
+    400026: Body_014
+    400028: Body_015
+    400030: Body_016
+    400032: Cube
+    400034: //RootNode
+    400036: Foot1
+    400038: Foot2
+    400040: Head
+    400042: Leg1
+    400044: Leg2
+    400046: Wing1
+    400048: Wing2
+    4300000: Cube
+    7400000: Fly
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Cube
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 1
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Fly
+      takeName: ArmatureAction
+      firstFrame: 1
+      lastFrame: 39
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Body
+        weight: 1
+      - path: Armature/Body/Head
+        weight: 1
+      - path: Armature/Body_001
+        weight: 1
+      - path: Armature/Body_001/Wing1
+        weight: 1
+      - path: Armature/Body_003
+        weight: 1
+      - path: Armature/Body_003/Wing2
+        weight: 1
+      - path: Armature/Body_005
+        weight: 1
+      - path: Armature/Body_005/Body_006
+        weight: 1
+      - path: Armature/Body_005/Body_006/Body_007
+        weight: 1
+      - path: Armature/Body_005/Body_006/Body_007/Body_008
+        weight: 1
+      - path: Armature/Body_005/Body_006/Body_007/Body_008/Body_009
+        weight: 1
+      - path: Armature/Body_005/Body_006/Body_007/Body_008/Body_009/Body_010
+        weight: 1
+      - path: Armature/Body_005/Body_006/Body_007/Body_008/Body_009/Body_010/Body_011
+        weight: 1
+      - path: Armature/Body_005/Body_006/Body_007/Body_008/Body_009/Body_010/Body_011/Body_012
+        weight: 1
+      - path: Armature/Body_005/Body_006/Body_007/Body_008/Body_009/Body_010/Body_011/Body_012/Body_013
+        weight: 1
+      - path: Armature/Body_005/Body_006/Body_007/Body_008/Body_009/Body_010/Body_011/Body_012/Body_013/Body_014
+        weight: 1
+      - path: Armature/Body_005/Body_006/Body_007/Body_008/Body_009/Body_010/Body_011/Body_012/Body_013/Body_014/Body_015
+        weight: 1
+      - path: Armature/Body_005/Body_006/Body_007/Body_008/Body_009/Body_010/Body_011/Body_012/Body_013/Body_014/Body_015/Body_016
+        weight: 1
+      - path: Armature/Leg1
+        weight: 1
+      - path: Armature/Leg1/Foot1
+        weight: 1
+      - path: Armature/Leg2
+        weight: 1
+      - path: Armature/Leg2/Foot2
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

@@ -26,9 +26,11 @@ public class CharcaterControll : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-			if (Input.GetMouseButtonUp(0) && stopPlay){
+		animation["Fly"].speed = 3f;
+			if (Input.GetMouseButtonDown(0) && stopPlay){
 				vertical = 0.5f;
 				callGui.ClickCalculate();
+				animation.CrossFade("Fly");
 				if(!check){
 					callGui.RemoveGetReady();
 				}
@@ -56,7 +58,6 @@ public class CharcaterControll : MonoBehaviour {
 		if(testing){
 			Debug.Log("TADA");
 			callGui.MakeGameOver();
-			check = false;
 			stopPlay = false;
 			testing = false;
 			speed = 0;
