@@ -17,7 +17,11 @@ public class PlayerMoveRight : MonoBehaviour {
 	//Varible for gravity
 	public int gravity = 15;
 	//Varible that allows to play
-	private bool check = true;
+	private bool check;
+
+	void Start(){
+		check = false;
+	}
 
 	void FixedUpdate(){		
 		if(check){
@@ -28,7 +32,8 @@ public class PlayerMoveRight : MonoBehaviour {
 			//If left mouse button down, makes bird to fly up
 			if(Input.GetMouseButtonDown(0)){
 				rigidbody.AddForce(0,forceUp,0, ForceMode.Acceleration);
-				callGui.ClickCalculate(1);
+				callGui.ClickCalculate();
+				Debug.Log(check);
 			}
 
 			//If bird goes up it rotates up, else it rotates down
@@ -54,10 +59,10 @@ public class PlayerMoveRight : MonoBehaviour {
 		}
 	}
 	//If bird touch collision than game over
-	void OnCollisionEnter(Collision collision){
+	/*void OnCollisionEnter(Collision collision){
 		callGui.MakeGameOver(1);
 		check = false;
-	}
+	}*/
 
 
 }
