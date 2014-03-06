@@ -14,8 +14,9 @@ public class LeverController : MonoBehaviour
 		private GameObject[] levelParts;
 		public  int gapBetweenWalls = 5;
 		private int levelPartCounter = 0;
-		private float maxWallYPosition = 17;
-		private float minWallYPosition = 0;
+		private float maxWallYPosition = 15;
+		private float minWallYPosition = 1;
+		private bool isWallGenerete = false;
 
 		void Start ()
 		{
@@ -47,7 +48,7 @@ public class LeverController : MonoBehaviour
 				if (oldX < camera.transform.position.x + levelWidth) {
 						oldX += instanceGameObject.transform.localScale.x;
 
-						if (levelPartCounter < gapBetweenWalls) {
+						if (levelPartCounter < gapBetweenWalls || !isWallGenerete) {
 						
 								createLevelPart (oldX);
 								levelPartCounter += 1;
@@ -87,6 +88,11 @@ public class LeverController : MonoBehaviour
 		
 				Instantiate (wall, position, Quaternion.identity);
 
+		}
+
+		public void startWallGenerate ()
+		{
+				isWallGenerete = true;
 		}
 
 }
