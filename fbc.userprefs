@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameOver/GuI.cs">
+    <Files>
+      <File FileName="Assets/Scripts/LeverController.cs" Line="44" Column="18" />
+      <File FileName="Assets/Scripts/CharcaterControll.cs" Line="35" Column="28" />
+      <File FileName="Assets/Scripts/WallTriger.cs" Line="11" Column="13" />
+      <File FileName="Assets/Scripts/GameOver/GuI.cs" Line="26" Column="205" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
