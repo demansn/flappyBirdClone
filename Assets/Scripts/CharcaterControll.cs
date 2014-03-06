@@ -3,7 +3,7 @@ using System.Collections;
 
 
 public class CharcaterControll : MonoBehaviour {
-	public float speed = 0.25f;
+	public float speed = 0.20f;
 	private float vertical = 0;
 
 	private Vector3 moveDirection ;
@@ -15,10 +15,10 @@ public class CharcaterControll : MonoBehaviour {
 	public Collision collision;
 	//Varible for call method from GuI script
 	public GuI callGui;
+	public LeverController lc;
 	//Varible that allows to play
 	private bool check = false;
 	private bool stopPlay = true;
-	private bool testing = false;
 	private bool goDown = false;
 		
 	void Start(){
@@ -26,14 +26,19 @@ public class CharcaterControll : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		animation["Fly"].speed = 3f;
+
+			animation["Fly"].speed = 3f;
+
 			if (Input.GetMouseButtonDown(0) && stopPlay){
-				vertical = 0.5f;
-				callGui.ClickCalculate();
+				vertical = 0.4f;
+				
 				animation.CrossFade("Fly");
+
 				if(!check){
-					callGui.RemoveGetReady();
+					callGui.HideGetReady();
+					lc.startWallGenerate();
 				}
+
 				check = true;
 				
 			}
@@ -51,17 +56,14 @@ public class CharcaterControll : MonoBehaviour {
 			}	
 		
 
-			testing = true;
+			
 	}
 
 	public void OnControllerColliderHit(ControllerColliderHit hit){
-		if(testing){
-			Debug.Log("TADA");
 			callGui.MakeGameOver();
+			callGui.HidePoints ();
 			stopPlay = false;
-			testing = false;
-			speed = 0;
-		}
+			speed = 0;	
 	}
 
 }

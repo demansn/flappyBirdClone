@@ -2,8 +2,9 @@
   <MonoDevelop.Ide.Workspace />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CharcaterControll.cs">
     <Files>
-      <File FileName="..\FlyingDeamonAnimation\Assets\Scripts\PlayAnimation.cs" Line="14" Column="4" />
-      <File FileName="Assets\Scripts\CharcaterControll.cs" Line="29" Column="29" />
+      <File FileName="Assets\Scripts\CharcaterControll.cs" Line="60" Column="21" />
+      <File FileName="Assets\Scripts\CameraController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameOver\GuI.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

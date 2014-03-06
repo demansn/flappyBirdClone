@@ -32,7 +32,6 @@ public class PlayerMoveRight : MonoBehaviour {
 			//If left mouse button down, makes bird to fly up
 			if(Input.GetMouseButtonDown(0)){
 				rigidbody.AddForce(0,forceUp,0, ForceMode.Acceleration);
-				callGui.ClickCalculate();
 				Debug.Log(check);
 			}
 
