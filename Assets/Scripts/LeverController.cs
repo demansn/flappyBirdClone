@@ -17,6 +17,8 @@ public class LeverController : MonoBehaviour
 		private float maxWallYPosition = 15;
 		private float minWallYPosition = 1;
 		private bool isWallGenerete = false;
+		public int points = 0;
+		public int bestPoints = 0;
 
 		void Start ()
 		{
@@ -33,8 +35,11 @@ public class LeverController : MonoBehaviour
 						oldX += LevelPart.transform.localScale.x;
 						createLevelPart (oldX);
 									
-				}		
-	
+				}
+				
+				if (PlayerPrefs.HasKey ("bestPoints")) {
+						bestPoints = PlayerPrefs.GetInt ("bestPoints");
+				}
 		}
 
 		void Update ()
@@ -93,6 +98,16 @@ public class LeverController : MonoBehaviour
 		public void startWallGenerate ()
 		{
 				isWallGenerete = true;
+		}
+
+		public void addPoint ()
+		{
+			
+				points += 1;
+
+				if (points > bestPoints) {
+						bestPoints = points;
+				}
 		}
 
 }
