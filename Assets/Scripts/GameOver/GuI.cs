@@ -5,37 +5,50 @@ public class GuI : MonoBehaviour
 {
 
 		private bool callGameOver = false;
-		private bool removeGetReady = true;
+		private bool isShowGetReady = true;
+		private bool isShowPoint = true;
 		private int clickCalculate;
 		private int point = 0;
 		public Texture getReady;
 		public GUIStyle pointStyle;
 		public GUIStyle getReadyStyle;
+		public GUIStyle pointStyleEnd;
 		private Rect pointRect;
 		private Rect getReadyRect;
+		private Rect scoreRect;
+		private Rect bestScoreRect;
+	
 
 		void Start ()
 		{
 				
-				pointRect = new Rect (Screen.width / 2, Screen.currentResolution.height * 4 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 7 / 100);
-				getReadyRect = new Rect (Screen.width / 2, Screen.currentResolution.height * 15 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 10 / 100);
+				pointRect = new Rect (Screen.currentResolution.width *30/100,  Screen.currentResolution.height * 4 / 100, Screen.currentResolution.width * 40 / 100, Screen.currentResolution.height * 7 / 100);
+				getReadyRect = new Rect (Screen.currentResolution.width *30 / 100, Screen.currentResolution.height * 20 / 100, Screen.currentResolution.width * 40 / 100, Screen.currentResolution.height * 10 / 100);
+				scoreRect = new Rect (Screen.currentResolution.width * 47/ 100, Screen.currentResolution.height * 33 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 10 / 100);
+				bestScoreRect = new Rect (Screen.currentResolution.width * 47/ 100, Screen.currentResolution.height * 38 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 10 / 100);
 		}
 
 		void OnGUI ()
 		{
-				if (removeGetReady) {
-						GUI.Label (getReadyRect, "GET READY", getReadyStyle);			
-						//GUI.DrawTexture (new Rect (Screen.currentResolution.width * 40 / 100, Screen.currentResolution.height * 20 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 10 / 100), getReady);
+				if (isShowGetReady) {
+					GUI.Label (getReadyRect, "GET READY", getReadyStyle);		
+						
 				}
+
 				if (callGameOver) {
-						GUI.Box (new Rect (Screen.currentResolution.width * 5 / 100, Screen.currentResolution.height * 5 / 100, Screen.currentResolution.width * 90 / 100, Screen.currentResolution.height * 30 / 100), "Game Over");
-						if (GUI.Button (new Rect (Screen.currentResolution.width * 30 / 100, Screen.currentResolution.height * 10 / 100, Screen.currentResolution.width * 40 / 100, Screen.currentResolution.height * 10 / 100), "Try Again")) {
+					GUI.Label(getReadyRect, "Game Over", getReadyStyle);
+					GUI.Label(scoreRect, "Score: " + point.ToString(), pointStyleEnd);
+					GUI.Label(bestScoreRect, "BestScore: ", pointStyleEnd);
+						if (GUI.Button (new Rect (Screen.currentResolution.width * 37 / 100, Screen.currentResolution.height * 35 / 100, Screen.currentResolution.width * 10 / 100, Screen.currentResolution.height * 7 / 100), "Try Again")) {
 								Application.LoadLevel (0);
 								callGameOver = false;
 						}
 				}
-				GUI.Label (new Rect (Screen.currentResolution.width * 5 / 100, Screen.currentResolution.height * 10 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 7 / 100), "Button Clicks " + clickCalculate);
-				GUI.Label (pointRect, point.ToString (), pointStyle);
+			
+			if (isShowPoint) {
+
+						GUI.Label (pointRect, point.ToString (), pointStyle);
+				}
 		}
 
 		public void MakeGameOver ()
@@ -43,18 +56,21 @@ public class GuI : MonoBehaviour
 				callGameOver = true;
 		}
 
-		public void ClickCalculate ()
-		{
-				clickCalculate++;		
-		}
+		
 
 		public void AddPoint ()
 		{
 				point += 1;
 		}
 
-		public void RemoveGetReady ()
+		public void HidePoints(){
+
+		isShowPoint = false;
+
+		}
+
+		public void HideGetReady ()
 		{
-				removeGetReady = false;		
+				isShowGetReady = false;		
 		}
 }
