@@ -20,6 +20,8 @@ public class CharcaterControll : MonoBehaviour {
 	private bool check = false;
 	private bool stopPlay = true;
 	private bool goDown = false;
+
+	public GameObject collisionAudio;
 		
 	void Start(){
 		fixedPos = transform.position;
@@ -27,13 +29,15 @@ public class CharcaterControll : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-			animation["Fly"].speed = 3f;
-
+		if(stopPlay){
+			animation.CrossFade("Fly");
+		}
 			if (Input.GetMouseButtonDown(0) && stopPlay){
+				audio.Play();
 				vertical = 0.4f;
+				animation["Fly"].speed = 3f;
+				animation.CrossFade("Fly");
 				
-				animation.Play("Fly");
-
 				if(!check){
 					callGui.HideGetReady();
 					lc.startWallGenerate();
@@ -60,10 +64,14 @@ public class CharcaterControll : MonoBehaviour {
 	}
 
 	public void OnControllerColliderHit(ControllerColliderHit hit){
+		if(stopPlay){	
 			callGui.MakeGameOver();
 			callGui.HidePoints ();
-			stopPlay = false;
 			speed = 0;	
+			animation.Stop("Fly");
+			collisionAudio.audio.Play();
+			stopPlay = false;
+		}
 	}
 
 }
