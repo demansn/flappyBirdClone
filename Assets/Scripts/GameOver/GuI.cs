@@ -12,27 +12,34 @@ public class GuI : MonoBehaviour
 		public Texture getReady;
 		public GUIStyle pointStyle;
 		public GUIStyle getReadyStyle;
+		public GUIStyle pointStyleEnd;
 		private Rect pointRect;
 		private Rect getReadyRect;
-
+		private Rect scoreRect;
+		private Rect bestScoreRect;
+	
 
 		void Start ()
 		{
 				
-				pointRect = new Rect (Screen.width / 2, Screen.currentResolution.height * 4 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 7 / 100);
-				getReadyRect = new Rect (Screen.width / 2, Screen.currentResolution.height * 15 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 10 / 100);
+				pointRect = new Rect (Screen.currentResolution.width *30/100,  Screen.currentResolution.height * 4 / 100, Screen.currentResolution.width * 40 / 100, Screen.currentResolution.height * 7 / 100);
+				getReadyRect = new Rect (Screen.currentResolution.width *30 / 100, Screen.currentResolution.height * 20 / 100, Screen.currentResolution.width * 40 / 100, Screen.currentResolution.height * 10 / 100);
+				scoreRect = new Rect (Screen.currentResolution.width * 47/ 100, Screen.currentResolution.height * 33 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 10 / 100);
+				bestScoreRect = new Rect (Screen.currentResolution.width * 47/ 100, Screen.currentResolution.height * 38 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 10 / 100);
 		}
 
 		void OnGUI ()
 		{
 				if (isShowGetReady) {
-						GUI.Label (getReadyRect, "GET READY", getReadyStyle);			
-						//GUI.DrawTexture (new Rect (Screen.currentResolution.width * 40 / 100, Screen.currentResolution.height * 20 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 10 / 100), getReady);
+					GUI.Label (getReadyRect, "GET READY", getReadyStyle);		
+						
 				}
 
 				if (callGameOver) {
-						GUI.Box (new Rect (Screen.currentResolution.width * 5 / 100, Screen.currentResolution.height * 5 / 100, Screen.currentResolution.width * 90 / 100, Screen.currentResolution.height * 30 / 100), "Game Over");
-						if (GUI.Button (new Rect (Screen.currentResolution.width * 30 / 100, Screen.currentResolution.height * 10 / 100, Screen.currentResolution.width * 40 / 100, Screen.currentResolution.height * 10 / 100), "Try Again")) {
+					GUI.Label(getReadyRect, "Game Over", getReadyStyle);
+					GUI.Label(scoreRect, "Score: " + point.ToString(), pointStyleEnd);
+					GUI.Label(bestScoreRect, "BestScore: ", pointStyleEnd);
+						if (GUI.Button (new Rect (Screen.currentResolution.width * 37 / 100, Screen.currentResolution.height * 35 / 100, Screen.currentResolution.width * 10 / 100, Screen.currentResolution.height * 7 / 100), "Try Again")) {
 								Application.LoadLevel (0);
 								callGameOver = false;
 						}

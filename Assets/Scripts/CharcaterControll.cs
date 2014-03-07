@@ -32,7 +32,7 @@ public class CharcaterControll : MonoBehaviour {
 			if (Input.GetMouseButtonDown(0) && stopPlay){
 				vertical = 0.4f;
 				
-				animation.CrossFade("Fly");
+				animation.Play("Fly");
 
 				if(!check){
 					callGui.HideGetReady();
