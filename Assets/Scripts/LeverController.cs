@@ -4,7 +4,8 @@ using System.Collections;
 public class LeverController : MonoBehaviour
 {
 
-		public GameObject LevelPart;
+		public GameObject UpPart;
+		public GameObject DownPart;
 		public GameObject wall;
 		public Camera camera;
 		public float levelWidth = 27;
@@ -12,8 +13,8 @@ public class LeverController : MonoBehaviour
 		private float oldX = 0;
 		private float currentX = 0;
 		private GameObject[] levelParts;
-		public  int gapBetweenWalls = 5;
-		private int levelPartCounter = 0;
+		public  float gapBetweenWalls = 5;
+		private float levelPartCounter = 0;
 		private float maxWallYPosition = 15;
 		private float minWallYPosition = 1;
 		private bool isWallGenerete = false;
@@ -32,14 +33,12 @@ public class LeverController : MonoBehaviour
 
 				while (oldX <  camera.transform.position.x + levelWidth) {
 
-						oldX += LevelPart.transform.localScale.x;
+						oldX += DownPart.transform.localScale.x;
 						createLevelPart (oldX);
 									
 				}
 				
-				if (PlayerPrefs.HasKey ("bestPoints")) {
-						bestPoints = PlayerPrefs.GetInt ("bestPoints");
-				}
+				
 		}
 
 		void Update ()
@@ -51,20 +50,21 @@ public class LeverController : MonoBehaviour
 
 
 				if (oldX < camera.transform.position.x + levelWidth) {
-						oldX += instanceGameObject.transform.localScale.x;
-
+						oldX += instanceGameObject.transform.localScale.x;								
+			
 						if (levelPartCounter < gapBetweenWalls || !isWallGenerete) {
-						
+
 								createLevelPart (oldX);
 								levelPartCounter += 1;
-						} else {
+
+						} else {						
+					
 								createWall (oldX, Random.Range (minWallYPosition, maxWallYPosition));
 								levelPartCounter = 0;
 						}
 
 
 				}
-
 
 
 				for (int i = 0; i < levelParts.Length; i += 1) {
@@ -80,8 +80,8 @@ public class LeverController : MonoBehaviour
 				Vector3 upPartPos = new Vector3 (x, levelHeight, 0);
 				Vector3 downPartPos = new Vector3 (x, 0, 0);
 
-				Instantiate (LevelPart, upPartPos, Quaternion.identity);
-				Instantiate (LevelPart, downPartPos, Quaternion.identity);
+				Instantiate (UpPart, upPartPos, Quaternion.identity);
+				Instantiate (DownPart, downPartPos, Quaternion.identity);
 
 
 		}
@@ -100,14 +100,5 @@ public class LeverController : MonoBehaviour
 				isWallGenerete = true;
 		}
 
-		public void addPoint ()
-		{
-			
-				points += 1;
-
-				if (points > bestPoints) {
-						bestPoints = points;
-				}
-		}
 
 }
