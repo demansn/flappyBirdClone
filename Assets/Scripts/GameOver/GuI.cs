@@ -26,13 +26,19 @@ public class GuI : MonoBehaviour
 				getReadyRect = new Rect (Screen.currentResolution.width *30 / 100, Screen.currentResolution.height * 20 / 100, Screen.currentResolution.width * 40 / 100, Screen.currentResolution.height * 10 / 100);
 				scoreRect = new Rect (Screen.currentResolution.width * 47/ 100, Screen.currentResolution.height * 33 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 10 / 100);
 				bestScoreRect = new Rect (Screen.currentResolution.width * 47/ 100, Screen.currentResolution.height * 38 / 100, Screen.currentResolution.width * 20 / 100, Screen.currentResolution.height * 10 / 100);
+
+				pointStyle.fontSize = Screen.currentResolution.height * 7 /100;
+				getReadyStyle.fontSize = Screen.currentResolution.height * 8 /100;
+				pointStyleEnd.fontSize = Screen.currentResolution.height * 4 /100;
+
+				
 		}
 
 		void OnGUI ()
 		{
 				if (isShowGetReady) {
-					GUI.Label (getReadyRect, "GET READY", getReadyStyle);		
-						
+				
+					GUI.Label(getReadyRect, "GET READY", getReadyStyle);						
 				}
 
 				if (callGameOver) {
