@@ -14,6 +14,11 @@ public class GameController : MonoBehaviour {
 
 	}
 
+	public void Load(){
+
+	
+	}
+
 	public static void Restart(){
 		
 		Application.LoadLevel (0);
