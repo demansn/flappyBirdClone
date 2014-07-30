@@ -3,63 +3,53 @@ using System.Collections;
 
 public class LeverController : MonoBehaviour
 {
-
-		public GameObject LevelPart;
+		public GameObject UpPart;
+		public GameObject DownPart;
 		public GameObject wall;
 		public Camera camera;
 		public float levelWidth = 27;
 		public float levelHeight = 30;
-		private float oldX = 0;
-		private float currentX = 0;
+		private float oldX = 0; 
 		private GameObject[] levelParts;
-		public  int gapBetweenWalls = 5;
-		private int levelPartCounter = 0;
+		public  float gapBetweenWalls = 5;
+		private float levelPartCounter = 0;
 		private float maxWallYPosition = 15;
 		private float minWallYPosition = 1;
 		private bool isWallGenerete = false;
+		public int points = 0;
+		public int bestPoints = 0;
 
 		void Start ()
 		{
 
 				oldX = camera.transform.position.x - levelWidth;
 
-				Vector3 r = new Vector3 (0, 0, 0);
-				Vector3 newPos;
-
-				GameObject instanceGameObject;
-
 				while (oldX <  camera.transform.position.x + levelWidth) {
-
-						oldX += LevelPart.transform.localScale.x;
-						createLevelPart (oldX);
-									
-				}		
-	
+						oldX += DownPart.transform.localScale.x;
+						createLevelPart (oldX);		
+				}				
+				
 		}
 
 		void Update ()
-		{				
-
-				Vector3 newPos;
+		{			
 				levelParts = GameObject.FindGameObjectsWithTag ("LevelPart");
 				GameObject instanceGameObject = levelParts [levelParts.Length - 1];
 
 
 				if (oldX < camera.transform.position.x + levelWidth) {
-						oldX += instanceGameObject.transform.localScale.x;
-
+						oldX += instanceGameObject.transform.localScale.x;								
+			
 						if (levelPartCounter < gapBetweenWalls || !isWallGenerete) {
-						
 								createLevelPart (oldX);
 								levelPartCounter += 1;
-						} else {
+						} else {				
 								createWall (oldX, Random.Range (minWallYPosition, maxWallYPosition));
 								levelPartCounter = 0;
 						}
 
 
 				}
-
 
 
 				for (int i = 0; i < levelParts.Length; i += 1) {
@@ -75,9 +65,9 @@ public class LeverController : MonoBehaviour
 				Vector3 upPartPos = new Vector3 (x, levelHeight, 0);
 				Vector3 downPartPos = new Vector3 (x, 0, 0);
 
-				Instantiate (LevelPart, upPartPos, Quaternion.identity);
-				Instantiate (LevelPart, downPartPos, Quaternion.identity);
-
+				Instantiate (UpPart, upPartPos, Quaternion.identity);
+				Instantiate (DownPart, downPartPos, Quaternion.identity);
+				
 
 		}
 
@@ -94,5 +84,6 @@ public class LeverController : MonoBehaviour
 		{
 				isWallGenerete = true;
 		}
+
 
 }
